@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-5" />
+	<meta name="Author" content="Elitsa Nikolova" />
+	<meta name="Robots" content="index,follow" />
+	<meta name="Description" content="Synthesis and Analysis of Algorithms" />
+	<meta name="Keywords" content="Synthesis,Analysis,Algorithms" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<title>СИНТЕЗ И АНАЛИЗ НА АЛГОРИТМИ</title>
+    <style type="text/css">
+<!--
+.style1 {
+	font-size: 1.2em;
+	color: #333333;
+}
+.style7 {font-size: 1.2em}
+.style13 {font-size: 0.7em}
+-->
+    </style>
+</head>
+<body>
+	<div id="main">
+<ul id="menu">
+<li><a href="sort.html"><span class="key">Алгоритми за сортиране</span></a></li>
+            <li><a href="metods.html"><span class="key">Методи за създаване</span></a></li>
+            <li><a href="struct.html"><span class="key">Структури данни</span></a></li>
+            <li><a href="index.html"><span class="key">Алгоритми</a></li>
+</ul>
+		
+  <div id="intro_left">
+			<p>Алгоритмите в сайта са описани на псевдокод, което ги прави по-лесни за четене и разбиране.</p>
+	  </div>
+		
+		<div id="intro_right">
+			<p class="white">УЕБ БАЗИРАНО ПРИЛОЖЕНИЕ ПО</p>
+		  <h1>СИНТЕЗ И АНАЛИЗ НА АЛГОРИТМИ</h1>
+			<p></p>
+		</div>
+
+  <ul id="menu_left">
+			<li><a href="steak.html"><span>Стек</span></a></li>
+		<li><span><a href="tail.html">Опашка</a></span></li>
+		<li><a href="list.html"><span>Списък</span></a></li>
+        <li><span><a href="tree.html">Дърво</a></span></li>
+		<li><span><a href="task02.html">Задачи</a></span></li>
+	  </ul>
+
+			<div class="special">
+			  <h1>Структура от данни опашка 
+			  </h1>
+			  <p>Опашката  е линейна динамична структура. Разликата с останалите линеен списък) е по  начина на извършване на операциите включване и   изключване. При опашката се изключва първият включен елемент, затова се  нарича памет от тип FIFO (First In First Out). Така  във всеки момент, освен а празна, в опашката има един първи и един последен  елемент. Включване се извършва, като новият елемент се добавя след последния и  става нов по елемент; изключването премахва първия елемент и следващият го  става но елемент. Следователно с опашката следва да се асоциират не един, а два  указателя - единият сочи първия, а вторият сочи последния елемент в опашката. <br />
+			    Резервирането на адресно пространство  за елементите на опашката може да се направи чрез масив, като отново важи  уговорката, че е необходимо да се знае максималният текущ брой на елементите в  опашката за цялото време на обработка.</p>
+			  <table width="329" height="33" border="1" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td valign="top"><p>&nbsp;</p></td>
+                  <td valign="top"><p>&nbsp;</p></td>
+                  <td valign="top"><p><img src="images/tail_clip_image001.gif" alt="2" width="12" height="26" /><strong>?</strong></p></td>
+                  <td valign="top"><p><strong>?</strong> </p></td>
+                  <td valign="top"><p>..</p></td>
+                  <td valign="top"><p><strong>?</strong> </p></td>
+                  <td valign="top"><p><img src="images/tail_clip_image002.gif" alt="1" width="12" height="26" /><strong>?</strong> </p></td>
+                  <td valign="top"><p>&nbsp;</p></td>
+                </tr>
+              </table>
+			  <p><strong>        f                                                                    l</strong><strong></strong><br />
+			    В  горната схема f  и  l са съответно указателите за пръв и последен елемент. <br />
+              </p>
+			  <div>
+                <p><em>p</em>:=<em>p</em>+1;<br />
+                    <em>ако</em> <em>p</em>&gt;<em>n</em> <em>то</em> <em>p</em>:=1;</p>
+		      </div>
+			   <img width="145" height="150" src="tail_image004.jpg" alt="image39" /><br clear="all" />
+Един  проблем, който може да възникне след поредица операции за включване и  изключване на елементи от опашката, е, че указателят l може да достигне до края  на масива, и въпреки, че поради изключване има празни места в началото на  масива, да не може да се включи нов елемент.   Поради това полезно е цикличното третиране на масива, когато след  последния му елемент като следващ се разглежда първият. Така, ако с р  означим  f  или l, то преместването им с  една позиция надясно може да се осъществи така: <br />
+Опашката  може да има две крайни състояния, които трябва еднозначно да се разпознават:
+</p>
+<ol>
+  <li>празна опашка </li>
+  <li>запълнено адресно пространство за опашката. </li>
+</ol>
+<p>В  първия случай не може да се изключва елемент, защото няма такъв, а във втория  случай не може да се включва. За да се разпознаят двете състояния, може да се  възприеме следната стратегия за използване на указателите: </p>
+<ol>
+  <li>f   сочи първия подлежащ  на изключване елемент; </li>
+  <li>l   сочи първото свободно  място за включване (а не последния елемент). </li>
+</ol>
+<p>Тогава <br />
+  f = l означава "празна"  опашка; <br />
+  l+1 = f означава "запълнена"  опашка, като l+1 се  разбира в обобщения по-горе смисъл на нарастване на указател. <br />
+  Нека  queue[1...n] е  масивът за адресно пространство за опашката. Тогава следните процедури  реализират операциите за поддържане на опашка: </p>
+<ol>
+  <li>  Инициализация на празна  опашка: </li>
+</ol>
+<p>init(queue,f,l)<br />
+  f:=1;l:=1; </p>
+<ol>
+  <li>включване  на елемент в опашка: </li>
+</ol>
+<p>put(queue, f, l, item,  fl); <br />
+  fl := false; <br />
+  lp:=l +1;<br />
+  ако lp &gt; n <u>mo</u> <br />
+  lp := 1; <br />
+  <u>ако</u> f &#8800; lp <u>mo</u> <br />
+  fl := true;<br />
+  queue<em> [</em><em>lp</em><em>] </em><em>:= </em>item; l<em> := </em>lp;</p>
+<ol>
+  <li>изключване на елемент  от опашка </li>
+</ol>
+<p>get(queue, f, l, item,  fl) <br />
+  fl:= false; <br />
+  <u>ако </u>f  &#8800;l <u>то</u> <br />
+  fl := true; <br />
+  item := queue[f];<br />
+ <em>f</em></a><em>:=</em><em>f</em><em>+</em><em>1</em><em>;</em> <br />
+  <u>ако</u> f &gt; n <u>mo</u> f := 1;</p>
+			  <h1 align="center">&nbsp;</h1>
+	  </div>
+	   <a style="display:scroll;position:fixed;bottom:10px;right:10px;" href="#" title="В началото"><img width="30" height="30" src="images/button.png"/></a>  
+</div>
+	
+<div id="footer">
+			<p>&copy; Copyright Synthesis and Analysis of Algorithms &middot; 2017 &middot; Design: Elitsa Nikolova&middot; 
+			 
+			  <a href="index.html"><span>Алгоритми</span></a>&middot;
+              <a href="struct.html"><span>Структури данни</span></a>&middot;
+               <a href="metods.html"><span>Методи за създаване</span></a>&middot;
+               <a href="sort.html"><span>Алгоритми за сортиране</span></a>&middot;
+		    <a href="map.html"><span>Карта на сайта</span></a></p>
+</div>
+</body>
+</html>

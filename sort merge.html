@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-5" />
+	<meta name="Author" content="Elitsa Nikolova" />
+	<meta name="Robots" content="index,follow" />
+	<meta name="Description" content="Synthesis and Analysis of Algorithms" />
+	<meta name="Keywords" content="Synthesis,Analysis,Algorithms" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<title>СИНТЕЗ И АНАЛИЗ НА АЛГОРИТМИ</title>
+    <style type="text/css">
+<!--
+.style1 {
+	font-size: 1.2em;
+	color: #333333;
+}
+.style7 {font-size: 1.2em}
+.style13 {font-size: 0.7em}
+-->
+    </style>
+</head>
+<body>
+	<div id="main">
+<ul id="menu">
+<li><a href="sort.html"><span class="key">Алгоритми за сортиране</span></a></li>
+            <li><a href="metods.html"><span class="key">Методи за създаване</span></a></li>
+            <li><a href="struct.html"><span class="key">Структури данни</span></a></li>
+            <li><a href="struct.html"><span class="key">Алгоритми</span></a></li>
+</ul>
+		
+  <div id="intro_left">
+			<p>Алгоритмите в сайта са описани на псевдокод, което ги прави по-лесни за четене и разбиране.</p>
+	  </div>
+		
+		<div id="intro_right">
+			<p class="white">УЕБ БАЗИРАНО ПРИЛОЖЕНИЕ ПО</p>
+		  <h1>СИНТЕЗ И АНАЛИЗ НА АЛГОРИТМИ</h1>
+			<p></p>
+		</div>
+
+  <ul id="menu_left">
+			<li><a href="sort quick.html"><span>Бързо сортиране</span></a></li>
+			<li><a href="sort merge.html"><span>Сортиране чрез сливане</span></a></li>
+			<li><a href="sort  pyramid.html"><span>Сортиране чрез дърво. Пирамидално сортиране</span></a></li>
+            <li><a href="sort no comparison.html"><span>Сортировка без сравнения</span></a></li>
+		<li><a href="task04.html"><span>Задачи</span></a></li>
+	  </ul>
+
+
+			<div class="special">
+			  <h1>Сортиране със сливане </h1>
+			  <p><br />
+			    Методът  за сортиране със сливане отново е построен върху подхода зделяй и владей".. <br />
+			    Нека  да приемем, че масивът, подлежащ на сортиране, е разделен на две ти: af,af+x,...,am и аи+1,...,а;,  чрез елемент ат в  средата, така че всяка от двете ти са вече сортирани. Задачата е, като използваме  допълнителен масив ;леем двете части в сортиран вид. За тази цел въвеждаме два  указателя <em>f </em>и j ,зa които откриваме  подходящия за прехвърляне елемент в масива Ь, като олзваме наредбата  във всяка от двете части на а <br />
+			    af&lt;af+]&lt;...&lt;am и ат+] &lt;ат+2  &lt;...&lt;а1 <br />
+			    Идеята  е, като сравняваме елементите сочени от указателите i и j ,  прехвърляме в масива b  по-малкия от тях и придвижваме съответния указател надясно. Този процес  продължава до пълното изчерпване на една от двете части. Тогава останалата  неизчерпана част се прехвърля директно в масива b. След изчерпване на двете  части, сортираната редица се връща в масива а. <br />
+			    Броят сравнения, необходими за сливането на двете части, се  определя от сбора премествания на  указателите, а те се движат съответно:<em>i</em> от <em>f</em>до <em>т , </em>а <em>j </em>от  <em>т </em>+ 1 до <em>l</em>. Така  общо се обхождат <em>l</em> - <em>f</em>+ 1 елемента. Ако този брой е<em> п, </em>сравненията са не повече от <em>п (Сп </em>операции).  Алгоритъмът за сливането може да се  опише така: <br />
+                </p>
+			  <p><em>алгоритъм merge(A,</em><em>f,m,l);</em><br />
+                <em> i:=</em><em>f; j:=m+1; k:=</em><em>f; </em><br />
+                <em><u>докато</u> i&lt;=m and</em><em> j&lt;=</em><em>l <u>прави </u></em><em><u> </u></em><br />
+                <em><u>ако</u> A[i]&lt;=A[</em><em>j] <u>то</u> </em><br />
+                <em>B[</em><em>k]:=A[i]; </em><em>i</em>:=<em>i</em>+ 1; <br />
+                <em><u>иначе</u></em><br />
+                <em>B[k]:=A[</em><em>j];j:=j+1; </em><br />
+                <em>k:=k+1 </em><br />
+                <em><u>ако</u> i&gt;m <u>то</u></em><br />
+                <em><u>за</u></em> <em>i</em>: <em>=</em><em>j <u>до</u> </em><em>l <u>прави</u> </em><br />
+                <em>B[k]:=A[i];  k:=k+1; </em><br />
+                <em><u>иначе</u></em><br />
+                <em><u>за</u> j:=i <u>до</u> т <u>прави</u> </em><br />
+                <em>B[k]:=A[</em><em>j]; k:=k+1; </em><br />
+                <em><u>за</u> i:=f <u>до</u></em> <em>l <u>прави</u> </em><br />
+                <em>А</em><em>[i]:=В</em><em>[i]; </em><br />
+                Използвайки тази процедура за сливане на две сортирани части,  може да опишем алгоритъма за сортиране  със сливане по следния начин: </p>
+			  <ol>
+			    <li>  разделяме частта, подлежаща на  сортиране на две половини(фаза &quot;разделяй&quot;); </li>
+			    <li> всяка от тях сортираме с <em>описвания  алгоритъм </em>(фаза &quot;владей&quot;); </li>
+			    <li>двете сортирани половини сливаме с процедурата  merge. </li>
+		      </ol>
+			  <p>Вижда  се, че в описанието на алгоритъма за сортиране става позоваване на самия него, следователно имаме рекурсивен  алгоритъм. Тривиалният случай е при дължина на частта за сортиране единица,  която си е сортирана и не се върши нищо. Описанието на алгоритъма на псевдокод  изглежда така:<br />
+			    <em>алгоритъм mrgsrt(A,</em><em>f,</em><em>l); </em><br />
+  <em><u>ако</u> f&lt;</em><em>l <u>то</u> </em><br />
+  <em>m:=(f+l) div 2 </em><br />
+  <em>mrgsrt(A,</em><em>f,m); </em><br />
+  <em>mrgsrt(A,m+ l,l);</em><br />
+  <em> теrgе(А,</em><em>f,т,</em><em>l); </em><br />
+			    Извикването  на описаната процедура <em>mrgsrt </em>за сортиране на масив с <em>п</em>елемента става с <em>mrgsrt(A,1,n). </em></p>
+			  <p><u class="blue">Оценка за сложност</u><br clear="all" />
+              </p>
+			  <div>
+                <p>За сортиране на <em>п </em>елемента  се решават две задачи с размерност  <img src="images/sort merge_image002.gif" alt="2" width="7" height="43" />  и още се извършват пропорционален на <em>п </em>брой операции за сравненията при сливането на подредените половини, Т.е. <br />
+                    <em>f (</em><em>n) </em>= <em>2f(</em><img src="images/sort merge_image004.gif" alt="4" width="7" height="25" /><em>)+Cn </em>= <em>C</em><em>п </em>log<em>2 </em><em>п </em>= <em>O(n</em>log <em>n). </em><br />
+                  Разликата тук в сравнение с алгоритъма <em>quicksort </em>е, че задачата за  сортиране на <em>п </em>елемента наистина се разделя на две задачи с по  <img src="images/sort merge_image006.gif" alt="6" width="10" height="43" />елемента ( с точност до 1), и това не зависи от случаен избор на ключов елемент. Следователно тук  няма израждане към оценка О <em>(n2), </em>както е в случая на <em>quicksort. </em></p>
+              </div>
+              <h1>&nbsp;</h1>
+	  </div>
+	   <a style="display:scroll;position:fixed;bottom:10px;right:10px;" href="#" title="В началото"><img width="30" height="30" src="images/button.png"/></a>  
+</div>
+	
+<div id="footer">
+			<p>&copy; Copyright Synthesis and Analysis of Algorithms &middot; 2017 &middot; Design: Elitsa Nikolova&middot; 
+			 
+			  <a href="index.html"><span>Алгоритми</span></a>&middot;
+              <a href="struct.html"><span>Структури данни</span></a>&middot;
+               <a href="metods.html"><span>Методи за създаване</span></a>&middot;
+               <a href="sort.html"><span>Алгоритми за сортиране</span></a>&middot;
+		    <a href="map.html"><span>Карта на сайта</span></a></p>
+</div>
+</html>
